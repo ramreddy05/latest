@@ -1,0 +1,46 @@
+.search-params {
+  background-color: lightskyblue;
+  height: auto;
+  padding: 10px;
+  margin: -11px -10px 10px -10px;
+}
+
+.search-params-fields {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.search-param {
+  padding: 5px;
+  font-weight: bold;
+}
+
+.total-records {
+  background-color: lightgray;
+  color: white;
+  padding: 0 5px 0 5px;
+  border-radius: 50%;
+  margin: 0 5px 0 10px;
+  font-weight: bold;
+}
+
+.search-param-button {
+  margin-top: 5px;
+}
+
+ul .pdf-button {
+  background-color: red;
+  color: white;
+  float: right;
+}
+
+ul .disclaimer-button {
+  background-color: blue;
+  color: white;
+  float: right;
+}
+
+li:last-child {
+  float: right;
+}

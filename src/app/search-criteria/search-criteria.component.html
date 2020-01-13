@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 search-criteria-area">
+      <div class="card">
+        <div class="card-header title-nav">
+          Search Criteria
+        </div>
+        <div class="card-body ">
+          <form
+            class="needs-validation"
+            [formGroup]="searchCriteriaForm"
+            (ngSubmit)="onSubmit()"
+            novalidate
+          >
+            <div *ngIf="submitted" class="invalid-feedback">
+              Required SID or Name or OLN
+            </div>
+            <label for="validationTooltip1" class="field-weight">Name</label>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationTooltip1"
+                  placeholder="First name"
+                  formControlName="firstName"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationTooltip2"
+                  placeholder="Last name"
+                  formControlName="lastName"
+                />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationTooltip3"
+                  placeholder="MI"
+                  formControlName="middleName"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationTooltip03" class="field-weight"
+                  >DOB</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="Date of Birth"
+                  id="validationTooltip03"
+                  datepicker-popup="MM/dd/yyyy"
+                  formControlName="birthDate"
+                  mask="00/00/0000"
+                  (mouseover)="enablesDisplayMask('dob')"
+                  (mouseleave)="disbaleDisplayMask('dob')"
+                  [showMaskTyped]="isDobMaskDisplay"
+                  maxlength="10"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationTooltip04" class="field-weight"
+                  >SSN</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="SSN"
+                  aria-label="SSN 1 9 digits only"
+                  formControlName="ssn"
+                  id="validationTooltip04"
+                  mask="000-000-000"
+                  (mouseover)="enablesDisplayMask('ssn')"
+                  (mouseleave)="disbaleDisplayMask('ssn')"
+                  [showMaskTyped]="isSsnMaskDisplay"
+                />
+              </div>
+            </div>
+            <p>
+              <span class="text-danger">FOR DEMOGRAPHIC SEARCH ONLY:</span> Last
+              Name, First Name (or First Initial) and DOB are mandatory for
+              preliminary response from PSP-CLEAN.
+            </p>
+            <div class="strike">
+              <span>Or</span>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationTooltip05" class="field-weight"
+                  >SID <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="SID"
+                  id="validationTooltip05"
+                  aria-label="SID 1 11 digits only"
+                  formControlName="fieldSID"
+                  mask="000-00-00-0"
+                  (mouseover)="enablesDisplayMask('sid')"
+                  (mouseleave)="disbaleDisplayMask('sid')"
+                  [showMaskTyped]="isSidMaskDisplay"
+                />
+              </div>
+            </div>
+            <div class="strike">
+              <span>Or</span>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationTooltip06" class="field-weight"
+                  >OLN <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="OLN"
+                  id="validationTooltip06"
+                  formControlName="oln"
+                  mask="00000000"
+                  (mouseover)="enablesDisplayMask('oln')"
+                  (mouseleave)="disbaleDisplayMask('oln')"
+                  [showMaskTyped]="isOlnMaskDisplay"
+                />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary button">
+              <i class="fa fa-search"></i>
+              Search
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary right-align button1"
+              (click)="onReset()"
+            >
+              <i class="fa fa-trash-o"></i>
+              Clear
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 transaction-info">
+      <app-transaction-information></app-transaction-information>
+    </div>
+  </div>
+</div>
+
+<div class="spinner" *ngIf="routerChanged">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>

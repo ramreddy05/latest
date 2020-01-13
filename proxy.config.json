@@ -1,0 +1,10 @@
+{
+  "/addresssearch2/api/*": {
+    "target": "http://localhost:7001",
+    "secure": true,
+    "pathRewrite": {
+      "^/posts": ""
+    },
+    "changeOrigin": true
+  }
+}

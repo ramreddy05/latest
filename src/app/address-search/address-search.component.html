@@ -1,0 +1,82 @@
+<div class="spinner" *ngIf="routerChanged"></div>
+
+<div class="card">
+  <div class="card-header search-params">
+    <div class="row ">
+      <div class="col-md-10">
+        <span *ngIf="formData.firstName && formData.lastName"
+          ><span class="search-param">Name:</span
+          ><span>{{ formData.firstName }}</span
+          >, <span>{{ formData.lastName }}</span></span
+        >
+        <span *ngIf="formData.birthDate"
+          ><span class="search-param">DOB:</span>
+          <span>{{ formData.birthDate }}</span>
+        </span>
+        <span *ngIf="formData.ssn"
+          ><span class="search-param">SSN:</span
+          ><span>{{ formData.ssn }}</span></span
+        >
+        <span *ngIf="formData.fieldSID"
+          ><span class="search-param">SID:</span
+          ><span>{{ formData.fieldSID }}</span></span
+        >
+        <span *ngIf="formData.oln"
+          ><span class="search-param">OLN:</span
+          ><span>{{ formData.oln }}</span></span
+        >
+        <span *ngIf="persons && persons.length > 0"
+          ><span class="total-records">{{ persons.length }}</span
+          >record returned.</span
+        >
+      </div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn btn-danger right-align"
+          routerLink="/search-criteria"
+          routerLinkActive="active"
+        >
+          Back to search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div id="pdfTable" #pdfTable>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <th scope="col">Name</th>
+          <th scope="col">DOB</th>
+          <th scope="col">SSN</th>
+          <th scope="col">SID</th>
+          <th scope="col">OLN</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons">
+            <td>
+              <a
+                routerLink="/address-search-details"
+                (click)="getUserDetails(person)"
+                routerLinkActive="active"
+                >{{ person.name }}</a>
+              <!-- <button
+                class="btn btn-danger right-align"
+                (click)="downloadAsPDF()"
+              >
+                Export To PDF
+              </button> -->
+            </td>
+            <td>{{ person.birthDt }}</td>
+            <td>{{ person.fieldSSN }}</td>
+            <td>{{ person.fieldSID }}</td>
+            <td>{{ person.oln }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer center-text-align">
+    End of results
+  </div>
+</div>

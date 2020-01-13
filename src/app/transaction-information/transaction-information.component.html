@@ -1,0 +1,107 @@
+<div class="card">
+  <div class="card-header title2-nav">
+    Transaction Information
+  </div>
+  <div class="card-body">
+    <form
+      class="needs-validation"
+      [formGroup]="transactionInfoForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+      <span class="in-label">( e.g. LastName, FirstName )</span>
+      <label for="validationTooltip01" class="filed-weight"
+        >Attention <span class="text-danger">*</span></label
+      >
+      <div class="form-group">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="validationTooltip01"
+            formControlName="attention"
+            placeholder="Last name, First name"
+            required
+          />
+          <div class="valid-tooltip">
+            Please provide valid name.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-3">
+          <span class="in-label">( To be changed by 911 center only )</span>
+          <label for="validationTooltip03" class="filed-weight"
+            >ORI <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="validationTooltip03"
+            formControlName="ori"
+            required
+          />
+        </div>
+      </div>
+      <p>
+        <span class="text-danger">Reminder:</span> 911 Center must enter ORI of
+        agency requesting the query in the Requesting Agency ORI field.
+      </p>
+      <div class="form-group">
+        <div class="mb-3">
+          <span class="in-label">( Select a purpose )</span>
+          <label for="validationTooltip03" class="filed-weight"
+            >Purpose <span class="text-danger">*</span></label
+          >
+          <select class="form-control">
+            <option>-- Select Purpose --</option>
+            <option value="C">C-Criminal Justice</option>
+            <option value="F">F-Weapons Related Checks</option>
+            <option value="J">J-Criminal Justice Employment</option>
+            <option value="Y">Y-Children and Youth Services</option>
+          </select>
+
+          <div class="invalid-tooltip">
+            Please select a valid purpose.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-3">
+          <span class="in-label">( Enter a specific reason for query )</span>
+          <label for="validationTooltip03" class="filed-weight"
+            >Reason <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="validationTooltip03"
+            formControlName="reason"
+            required
+          />
+          <div class="invalid-tooltip">
+            Please provide a valid reason.
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary button1"
+        routerLink="/address-search"
+        routerLinkActive="active"
+      >
+        <i class="fa fa-search"></i>
+        Search
+      </button>
+      <button
+        type="submit"
+        class="btn btn-secondary right-align button"
+        routerLink="/address-search"
+        routerLinkActive="active"
+      >
+        <i class="fa fa-trash-o"></i>
+        Clear
+      </button>
+    </form>
+  </div>
+</div>

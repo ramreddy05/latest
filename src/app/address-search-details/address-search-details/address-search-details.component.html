@@ -1,0 +1,94 @@
+<div class="loader" *ngIf="routerChanged"></div>
+
+<div class="card">
+  <div class="card-header search-params-fields">
+    <span><span class="search-param">Name:</span> {{ personData.name }}</span>
+    <span><span class="search-param">DOB:</span> {{ personData.birthDt }}</span>
+    <span
+      ><span class="search-param">SSN:</span> {{ personData.fieldSSN }}</span
+    >
+    <span
+      ><span class="search-param">SID:</span> {{ personData.fieldSID }}</span
+    >
+
+    <button
+      type="button"
+      class="btn btn-danger right-align"
+      routerLink="/address-search"
+    >
+      Back to Summary
+    </button>
+  </div>
+</div>
+<div>
+  <ul class="nav nav-tabs nav-tabs-btn">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [ngClass]="activeClass === 'addresses' ? 'active' : null"
+        (click)="loadPrisonDetails('addresses')"
+        routerLinkActive="active"
+        >Addresses
+        <span class="total-records" *ngIf="addresses">{{
+          addresses.length
+        }}</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [ngClass]="activeClass === 'active-prison' ? 'active' : null"
+        (click)="loadPrisonDetails('active-prison')"
+        routerLinkActive="active"
+        >Active Prison
+        <span class="total-records" *ngIf="prison">{{ prison.length }}</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [ngClass]="activeClass === 'active-probation' ? 'active' : null"
+        (click)="loadPrisonDetails('active-probation')"
+        routerLinkActive="active"
+        >Active Probation/Porole
+        <span class="total-records" *ngIf="probation">{{
+          probation.length
+        }}</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [ngClass]="activeClass === 'employer-addresses' ? 'active' : null"
+        (click)="loadPrisonDetails('employer-addresses')"
+        routerLinkActive="active"
+        >Employer addresses
+        <span class="total-records" *ngIf="employment">{{
+          employment.length
+        }}</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link  pull-right btn btn-danger"
+        [ngClass]="activeClass === 'employer-addresses' ? 'active' : null"
+        (click)="downloadAsPDF()"
+        routerLinkActive="active"
+        target="_blank"
+        >View PDF</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link btn btn-primary"
+        [ngClass]="activeClass === 'employer-addresses' ? 'active' : null"
+        (click)="showDisclaimer()"
+        routerLinkActive="active"
+        >Disclaimer</a
+      >
+    </li>
+  </ul>
+  <div class="tab-content" id="nav-tabContent">
+    <router-outlet></router-outlet>
+  </div>
+</div>

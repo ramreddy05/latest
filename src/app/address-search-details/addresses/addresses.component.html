@@ -1,0 +1,21 @@
+
+<div id="pdfTable" #pdfTable>
+  <table class="table table-sm table-bordered">
+    <thead>
+      <th scope="col">Reported Date</th>
+      <th scope="col">Address</th>
+      <th scope="col">Source</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let address of addresses">
+        <td class="ad">{{ address.reportedDt }}</td>
+        <td class="ad">{{ address.completeAddress }}</td>
+        <td class="ad">{{ address.addressSource }}</td>
+      </tr>
+
+      <div *ngIf="addresses && addresses.length === 0">
+        No results found
+      </div>
+    </tbody>
+  </table>
+</div>
